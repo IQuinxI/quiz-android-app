@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".quizzes.quiz4"
+    android:layout_margin="25dp"
+    >
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Quiz 4"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:layout_margin="20dp"/>
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        app:srcCompat="@drawable/q4" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="En tant qu'automobiliste, vous devez être plus vigilant lorsque:" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:id="@+id/radioMenu">
+
+        <RadioButton
+            android:id="@+id/radioItemYes"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Oui" />
+
+        <RadioButton
+            android:id="@+id/radioItemNo"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Non" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnNext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="NEXT"
+        android:backgroundTint="@color/gray1"
+        android:textColor="@color/black"/>
+</LinearLayout>
