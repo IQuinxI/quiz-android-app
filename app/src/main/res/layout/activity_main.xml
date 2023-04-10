@@ -61,7 +61,7 @@
         android:id="@+id/linkRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/registre"
+        android:text="click here to register"
         android:gravity="center"/>
 
 </LinearLayout>

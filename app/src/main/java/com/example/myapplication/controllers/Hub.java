@@ -1,8 +1,10 @@
 package com.example.myapplication.controllers;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -36,6 +38,7 @@ public class Hub extends AppCompatActivity {
         quizOnClick();
         leaderBoardOnClick();
         reviewOnClick();
+        logOutOnClick();
     }
 
     @Override
@@ -46,6 +49,12 @@ public class Hub extends AppCompatActivity {
         tvUsername.setText(user.getDisplayName());
     }
 
+    private void logOutOnClick() {
+        findViewById(R.id.linkLogOut)
+                .setOnClickListener(view -> {
+                    onBackPressed();
+                });
+    }
 
     private void checkSession() {
         if(user == null) {
@@ -55,6 +64,24 @@ public class Hub extends AppCompatActivity {
     }
     @Override
     public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setTitle("Log out")
+                .setMessage("Would you like to logout?")
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        FirebaseAuth.getInstance().signOut();
+                        startActivity(new Intent(Hub.this, MainActivity.class));
+                    }
+                })
+                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
+
+
 
     }
 
@@ -75,6 +102,8 @@ public class Hub extends AppCompatActivity {
             startActivity(new Intent(this, LeaderBoard.class));
         });
     }
+
+
 
 
 

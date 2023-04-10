@@ -40,6 +40,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
+
     private boolean InputChecker() {
         String email = inpEmail.getText().toString().trim();
         String password = inpPassword.getText().toString().trim();

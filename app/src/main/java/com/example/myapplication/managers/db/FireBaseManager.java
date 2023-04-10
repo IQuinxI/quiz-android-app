@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import com.example.myapplication.R;
 import com.example.myapplication.controllers.MainActivity;
 
+import com.example.myapplication.controllers.NoAnswers;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
@@ -49,9 +50,10 @@ public class FireBaseManager extends View {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Integer currScore = snapshot.getValue(Integer.class);
-//                Log.d("Score_Info", "updateLeaderBoard: "+currScore +" | "+score);
+                Log.d("Score_Info", "updateLeaderBoard: "+currScore +" | "+score);
                 if(currScore == null || currScore < score)
                     myRef.child("leaderBoard").child("score").child(currentUser.getUid()).setValue(score);
+//                    myRef.child("leaderBoard").child("score").child(currentUser.getUid()).setValue(currentUser.getDisplayName());
 
             }
 
@@ -63,6 +65,12 @@ public class FireBaseManager extends View {
         bestScore.addValueEventListener(scoreListener);
     }
 
+    public void FillLeaderBoard() {
+        myRef.child("leaderBoard").child("score");
+
+
+    }
+
     // get answer for a quiz
     public void getAnswers(Integer index, RadioButton radioButtonYes, RadioButton radioButtonNo,boolean yesIsCorrect, boolean noIsCorrect) {
         DatabaseReference answers = myRef.child("leaderBoard").child("quizAnswers").child(currentUser.getUid()).child(index.toString());
@@ -70,6 +78,10 @@ public class FireBaseManager extends View {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Boolean isCorrect = snapshot.getValue(Boolean.class);
+                if (isCorrect == null) {
+                    getContext().startActivity(new Intent(getContext(), NoAnswers.class));
+                    return;
+                }
                 if(isCorrect)  {
 //            Log.d("correct_answer", "fillAnswer: yes is correct");
                     if(yesIsCorrect)
