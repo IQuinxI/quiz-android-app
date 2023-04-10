@@ -12,4 +12,7 @@
     <color name="gray1">#555A56</color>
     <color name="teal_Cards">#579B80</color>
     <color name="red_error">#9A3D3D</color>
+    <color name="wrong_answer">#D33535</color>
+    <color name="right_answer">#648F29</color>
+
 </resources>

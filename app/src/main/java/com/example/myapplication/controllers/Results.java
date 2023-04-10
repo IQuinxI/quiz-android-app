@@ -10,8 +10,7 @@ import android.widget.TextView;
 import com.example.myapplication.managers.db.FireBaseManager;
 import com.example.myapplication.managers.quiz.ScoreManager;
 import com.example.myapplication.R;
-import com.example.myapplication.quizzes.quiz1;
-import com.example.myapplication.quizzes.quiz5;
+import com.example.myapplication.controllers.quizzes.quiz1;
 
 public class Results extends AppCompatActivity {
     private Button btnTryAgain;

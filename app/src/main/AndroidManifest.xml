@@ -19,22 +19,22 @@
             android:name="com.example.myapplication.controllers.Hub"
             android:exported="false" />
         <activity
-            android:name="com.example.myapplication.quizzes.quiz5"
+            android:name="com.example.myapplication.controllers.quizzes.quiz5"
             android:exported="false" />
         <activity
-            android:name="com.example.myapplication.quizzes.quiz4"
+            android:name="com.example.myapplication.controllers.quizzes.quiz4"
             android:exported="false" />
         <activity
-            android:name="com.example.myapplication.quizzes.quiz3"
+            android:name="com.example.myapplication.controllers.quizzes.quiz3"
             android:exported="false" />
         <activity
-            android:name="com.example.myapplication.quizzes.quiz2"
+            android:name="com.example.myapplication.controllers.quizzes.quiz2"
             android:exported="false" />
         <activity
             android:name="com.example.myapplication.controllers.Results"
             android:exported="false" />
         <activity
-            android:name="com.example.myapplication.quizzes.quiz1"
+            android:name="com.example.myapplication.controllers.quizzes.quiz1"
             android:exported="false" />
         <activity
             android:name="com.example.myapplication.controllers.SignUp"

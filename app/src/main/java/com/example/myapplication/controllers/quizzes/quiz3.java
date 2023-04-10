@@ -1,5 +1,4 @@
-
-package com.example.myapplication.quizzes;
+package com.example.myapplication.controllers.quizzes;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,7 +9,7 @@ import android.widget.RadioButton;
 import com.example.myapplication.managers.quiz.QuizManager;
 import com.example.myapplication.R;
 
-public class quiz4 extends AppCompatActivity {
+public class quiz3 extends AppCompatActivity {
 
     RadioButton radioItemYes;
     RadioButton radioItemNo;
@@ -19,12 +18,13 @@ public class quiz4 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_quiz4);
+        setContentView(R.layout.activity_quiz3);
         radioItemYes = findViewById(R.id.radioItemYes);
         radioItemNo = findViewById(R.id.radioItemNo);
         btnNext = findViewById(R.id.btnNext);
+        boolean isReview = getIntent().getBooleanExtra("isReview", false);
+        QuizManager quizManager = new QuizManager(quiz3.this, radioItemYes, radioItemNo, true,false, isReview);
+        quizManager.nextButton(btnNext, quiz4.class);
 
-        QuizManager quizManager = new QuizManager(quiz4.this, radioItemYes, radioItemNo, true, false);
-        quizManager.nextButton(btnNext, quiz5.class);
     }
 }
