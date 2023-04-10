@@ -3,11 +3,14 @@ package com.example.myapplication.managers.db;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import com.example.myapplication.R;
 import com.example.myapplication.controllers.MainActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,9 +31,16 @@ public class FireBaseManager extends View {
     private final FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private FirebaseUser currentUser = mAuth.getCurrentUser();
 
+    private boolean answer;
     public FireBaseManager(Context context) {
         super(context);
     }
+
+    public void setAnswer(boolean answer) {
+        this.answer = answer;
+    }
+
+    public boolean userAnsweredRight() { return answer;}
 
     // Updates scores, keeps track of the highest score
     public void updateLeaderBoard(int score) {
@@ -47,12 +57,45 @@ public class FireBaseManager extends View {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                Toast.makeText(getContext(), error.toException().getMessage(), Toast.LENGTH_SHORT).show();
             }
         };
         bestScore.addValueEventListener(scoreListener);
     }
 
+    // get answer for a quiz
+    public void getAnswers(Integer index, RadioButton radioButtonYes, RadioButton radioButtonNo,boolean yesIsCorrect, boolean noIsCorrect) {
+        DatabaseReference answers = myRef.child("leaderBoard").child("quizAnswers").child(currentUser.getUid()).child(index.toString());
+        ValueEventListener answersListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Boolean isCorrect = snapshot.getValue(Boolean.class);
+                if(isCorrect)  {
+//            Log.d("correct_answer", "fillAnswer: yes is correct");
+                    if(yesIsCorrect)
+                        radioButtonYes.setBackgroundColor(getResources().getColor(R.color.right_answer));
+                    else if(noIsCorrect)
+                        radioButtonNo.setBackgroundColor(getResources().getColor(R.color.right_answer));
+                }else {
+//            Log.d("correct_answer", "fillAnswer: yes is not correct");
+                    if(!yesIsCorrect)
+                        radioButtonYes.setBackgroundColor(getResources().getColor(R.color.wrong_answer));
+                    else if(!noIsCorrect)
+                        radioButtonNo.setBackgroundColor(getResources().getColor(R.color.wrong_answer));
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(getContext(), error.toException().getMessage(), Toast.LENGTH_SHORT).show();
+
+            }
+        };
+
+        answers.addValueEventListener(answersListener);
+
+    }
     // Saves the user's answers to the Database
     public void updateQuizAnswers(Integer index, boolean answer) {
         myRef.child("leaderBoard").child("quizAnswers").child(currentUser.getUid()).child(index.toString()).setValue(answer);

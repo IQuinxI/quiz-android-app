@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".quizzes.quiz1"
+    tools:context=".controllers.quizzes.quiz1"
     android:layout_margin="20dp"
     >
 
@@ -38,11 +38,12 @@
         android:layout_marginBottom="20dp"
         android:id="@+id/radioMenu">
 
+
         <RadioButton
             android:id="@+id/radioItemYes"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:text="Oui"/>
+            android:text="Oui" />
 
         <RadioButton
             android:id="@+id/radioItemNo"

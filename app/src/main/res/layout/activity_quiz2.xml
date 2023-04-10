@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".quizzes.quiz2"
+    tools:context=".controllers.quizzes.quiz2"
     android:layout_margin="25dp"
     >
 

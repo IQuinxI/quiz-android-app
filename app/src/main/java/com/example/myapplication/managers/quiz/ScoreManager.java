@@ -23,8 +23,10 @@ public class ScoreManager {
     }
     public static int getQuestionsNumber() {return questionsNumber; }
 
+
+    public static void incrementQuestionNumber() {questionsNumber++;}
     //when moving to the nextActivity, the static values are reinitialized
-    public static void addQuestionNumber() {
+    public static void nextButtonBehavior() {
         questionsNumber++;
         score += tmp_score;
         added = false;

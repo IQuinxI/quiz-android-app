@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         inpPassword = findViewById(R.id.inpPassword);
         linkRegister = findViewById(R.id.linkRegister);
 
+        inpEmail.setText("ab@gmail.com");
+        inpPassword.setText("yassine");
         SignInOnClick();
         LinkOnClick();
         mAuth = FirebaseAuth.getInstance();
