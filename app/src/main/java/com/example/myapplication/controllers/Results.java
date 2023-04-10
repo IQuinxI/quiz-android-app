@@ -33,7 +33,7 @@ public class Results extends AppCompatActivity {
         int score = (ScoreManager.getScore() * 100) / ScoreManager.getQuestionsNumber();
 
         FireBaseManager fbManager = new FireBaseManager(Results.this);
-        fbManager.updateLeaderBoard(score);
+//        fbManager.updateLeaderBoard(score);
 //        fbManager.getBestScore();
 
         TextView TVScore = findViewById(R.id.TVScore);

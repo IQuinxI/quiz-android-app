@@ -5,42 +5,45 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label= "@string/app_name"
+        android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
-            android:name="com.example.myapplication.controllers.ReviewLatestScore"
+            android:name=".controllers.NoAnswers"
             android:exported="false" />
         <activity
-            android:name="com.example.myapplication.controllers.LeaderBoard"
+            android:name=".controllers.ReviewLatestScore"
             android:exported="false" />
         <activity
-            android:name="com.example.myapplication.controllers.Hub"
+            android:name=".controllers.LeaderBoard"
             android:exported="false" />
         <activity
-            android:name="com.example.myapplication.controllers.quizzes.quiz5"
+            android:name=".controllers.Hub"
             android:exported="false" />
         <activity
-            android:name="com.example.myapplication.controllers.quizzes.quiz4"
+            android:name=".controllers.quizzes.quiz5"
             android:exported="false" />
         <activity
-            android:name="com.example.myapplication.controllers.quizzes.quiz3"
+            android:name=".controllers.quizzes.quiz4"
             android:exported="false" />
         <activity
-            android:name="com.example.myapplication.controllers.quizzes.quiz2"
+            android:name=".controllers.quizzes.quiz3"
             android:exported="false" />
         <activity
-            android:name="com.example.myapplication.controllers.Results"
+            android:name=".controllers.quizzes.quiz2"
             android:exported="false" />
         <activity
-            android:name="com.example.myapplication.controllers.quizzes.quiz1"
+            android:name=".controllers.Results"
             android:exported="false" />
         <activity
-            android:name="com.example.myapplication.controllers.SignUp"
+            android:name=".controllers.quizzes.quiz1"
             android:exported="false" />
         <activity
-            android:name="com.example.myapplication.controllers.MainActivity"
+            android:name=".controllers.SignUp"
+            android:exported="false" />
+        <activity
+            android:name=".controllers.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
